@@ -6,13 +6,22 @@
     <!-- Ensures proper scaling and layout on mobile devices -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
+
+  <script>
+    // Makes a pop-up window that asks for the user's name
+    response = window.prompt("What is your name?", "Enter your name here.")
+    // Sets the user's name input as the username variable
+    var username = response
+  </script>
   
   <body>
     <header>
-      <script>
-        // Writes and dynamically updates the welcome message with the user's name
-        document.write("Welcome " + username + "!")
-      </script>
+      <h6>
+        <script>
+          // Writes and dynamically updates the welcome message with the user's name
+          document.write("Welcome " + username + "!")
+        </script>
+      </h6>
     </header>
 
     <!-- Website navigation menu -->
@@ -25,11 +34,4 @@
       <li><a href="contact.html" target="_self">Contact</a></li>
     </ul>
   </body>    
-  
-  <script>
-    // Makes a pop-up window that asks for the user's name
-    response = window.prompt("What is your name?", "Enter your name here.")
-    // Sets the user's name input as the username variable
-    var username = response
-  </script>
 </html>
