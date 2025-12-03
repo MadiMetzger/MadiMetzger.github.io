@@ -41,8 +41,22 @@
         </label>
 
         <!-- Submit button -->
-        <input type="submit" value="Submit">
+        <input type="submit" id="submit" value="Submit">
       </form>
     </article>
   </body>
+
+  <script>
+    
+      
+    
+
+    
+    // Add an event listener to the Submit button that triggers the calcTotal function
+    document.getElementById("submit").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent form from refreshing the page
+      alert("Thank you, " + sendername + " your message has been sent!");
+    }, false);
+    
+  </script>
 </html>
