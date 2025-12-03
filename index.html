@@ -46,9 +46,9 @@
     // Function that will change all DOM elements' CSS style class
     function switchMode() {
       // Gathers all light class elements under one variable name
-      const lightElements = document.getElementsByClassName(".light");
+      document.getElementsByClassName("light").classList.toggle("dark");
       // Toggles all elements to the dark class
-      lightElements.classList.toggle(".dark");
+      
     }
     
     // Add an event listener that will change the mode of the page when the Dark Mode button changes
