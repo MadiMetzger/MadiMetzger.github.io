@@ -42,15 +42,14 @@
 
     // Declare listItem variable as blank
     var listItem = "";
-    
+
+    // for loop to write array info in blank bulleted list
     for (let i = 1; i <= skillsTech.length; i++) {
       // sets the listItem variable to the corresponding bullet list ID
       listItem = "item" + i;
 
-      // set listItem to text from skillsTech array
+      // set listItem to text from corresponding index number in skillsTech array
       document.getElementById(listItem).innerHTML = skillsTech[i - 1];
-
     }
   </script>
-  
 </html>
