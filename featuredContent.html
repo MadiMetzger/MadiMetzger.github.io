@@ -30,9 +30,27 @@
 
         <!-- Header for Personal Projects section -->
         <h2>Personal Projects</h2>
-
+        
       </div>
     </article>
 
+    <script>
+      // Count how many projects exist in the projects list
+      const projectCount = document.querySelectorAll("#projectsList a").length;
+
+      const uniDiv = document.getElementById("universityResources");
+      const personalDiv = document.getElementById("personalProjects");
+
+      // Requirements:
+      // If fewer than 3 projects: show BOTH divs
+      // If 3 or more: show ONLY personal projects
+      if (projectCount < 3) {
+        uniDiv.classList.remove("hidden");
+        personalDiv.classList.remove("hidden");
+      } else {
+        uniDiv.classList.add("hidden");
+        personalDiv.classList.remove("hidden");
+      }
+    </script>
   </body>
 </html>

@@ -4,14 +4,16 @@
   color: black;
   /* Set the background color to white */
   background-color: white;
-  /* Set the color for a link to blue */
-  a:link {
-    color: blue;
-  }
-  /* Set the color for a visited link to purple */
-  a:visited {
-    color: purple;
-  }
+}
+
+/* Set the color for a link to blue */
+.light a:hover {
+  color: blue;
+}
+
+/* Set the color for a visited link to purple */
+.light a:visited {
+  color: purple;
 }
 
 /* Defines the dark style class */
@@ -20,12 +22,25 @@
   color: white;
   /* Set the background color to black */
   background-color: black;
-  /* Set the color for a link to blue */
-  a:link {
-    color: blue;
-  }
-  /* Set the color for a visited link to violet */
-  a:visited {
-    color: violet;
-  }
+}
+
+/* Set the color for a link to blue */
+.dark a:hover {
+  color: blue;
+}
+
+/* Set the color for a visited link to violet */
+.dark a:visited {
+  color: violet;
+}
+
+.feature-box {
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
 }
