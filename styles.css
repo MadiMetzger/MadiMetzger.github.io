@@ -4,6 +4,14 @@
   color: black;
   /* Set the background color to white */
   background-color: white;
+  /* Set the color for a link to blue */
+  a:link {
+    color: blue;
+  }
+  /* Set the color for a visited link to purple */
+  a:visited {
+    color: purple;
+  }
 }
 
 /* Defines the dark style class */
@@ -12,7 +20,11 @@
   color: white;
   /* Set the background color to black */
   background-color: black;
-  /* Set the color for a visited link to */
+  /* Set the color for a link to blue */
+  a:link {
+    color: blue;
+  }
+  /* Set the color for a visited link to violet */
   a:visited {
     color: violet;
   }
