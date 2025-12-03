@@ -1,0 +1,15 @@
+/* Defines the light style class */
+.light {
+  /* Set the font color to black */
+  color: black;
+  /* Set the background color to white */
+  background-color: white;
+}
+
+/* Defines the dark style class */
+.dark {
+  /* Set the font color to white */
+  color: white;
+  /* Set the background color to black */
+  background-color: black;
+}
