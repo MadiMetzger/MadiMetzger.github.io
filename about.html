@@ -33,18 +33,22 @@
         <li id="item4"></li>
         <li id="item5"></li>
       </ul>
-
-      
     </article>
   </body>
 
   <script>
     // Declare an array containing skills and technologies I use
-    let skillsTech = ["HTML", "CSS", "JavaScript", "VS Code", "GitHub"]
+    let skillsTech = ["HTML", "CSS", "JavaScript", "VS Code", "GitHub"];
 
-    //for (let i = 1; i <= skillsTech.length; i++) {
-      
+    // Declare listItem variable as blank
+    var listItem = "";
+    
+    for (let i = 1; i <= skillsTech.length; i++) {
+      // sets the listItem variable to the corresponding bullet list ID
+      listItem = "item" + i;
 
+      // set listItem to text from skillsTech array
+      document.getElementById(listItem).innerHTML = skillsTech[i - 1];
 
     //}
   </script>
