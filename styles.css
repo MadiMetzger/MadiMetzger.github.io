@@ -12,4 +12,8 @@
   color: white;
   /* Set the background color to black */
   background-color: black;
+  /* Set the color for a visited link to */
+  a:visited {
+    color: violet;
+  }
 }
