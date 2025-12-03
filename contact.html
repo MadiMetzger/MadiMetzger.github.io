@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
   
-  <body>
+  <body class="dark">
     <!-- Page header -->
     <header>
-      <h1 class="light">Contact</h1>
+      <h1>Contact</h1>
     </header>
     
     <article>
@@ -19,25 +19,25 @@
       <form>
         
         <!-- Sender name field -->
-        <label class="light" for="sendername">
+        <label for="sendername">
           Sender Name:
           <input type="text" id="sendername" /><br>
         </label>
           
         <!-- User email address field -->
-        <label class="light" for="emailaddress">
+        <label for="emailaddress">
           Email Address:
           <input type="text" id="emailaddress" /><br>
         </label>
         
         <!-- Email subject field -->
-        <label class="light" for="emailsubject">
+        <label for="emailsubject">
           Subject:
           <input type="text" id="emailsubject" /><br>
         </label>
 
         <!-- Email message field -->
-        <label class="light" for="emailmessage">
+        <label for="emailmessage">
           Message:
           <input type="text" id="emailmessage" /><br>
         </label>
@@ -55,6 +55,5 @@
       // Send alert message thanking the user by their entered name for sending a message, and tells them that their message has been sent
       alert("Thank you, " + document.getElementById("sendername").value + " your message has been sent!");
     }, false);
-    
   </script>
 </html>
