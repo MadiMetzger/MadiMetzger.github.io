@@ -47,12 +47,7 @@
   </body>
 
   <script>
-    
-    
-    
-
-    
-    // Add an event listener to the Submit button that triggers the calcTotal function
+    // Add an event listener to the Submit button that sends a thank you message with the user's entered name
     document.getElementById("submit").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent form from refreshing the page
       alert("Thank you, " + document.getElementById("sendername").value + " your message has been sent!");
