@@ -48,14 +48,14 @@
 
   <script>
     
-      
+    let senderName = document.getElementById("sendername").value;
     
 
     
     // Add an event listener to the Submit button that triggers the calcTotal function
     document.getElementById("submit").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent form from refreshing the page
-      alert("Thank you, " + sendername + " your message has been sent!");
+      alert("Thank you, " + senderName + " your message has been sent!");
     }, false);
     
   </script>
