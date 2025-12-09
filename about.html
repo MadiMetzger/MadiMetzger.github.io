@@ -52,6 +52,25 @@
 
       // set listItem to text from corresponding index number in skillsTech array
       document.getElementById(listItem).innerHTML = skillsTech[i - 1];
-    }
+    };
+
+    // Creates a new heading element and assigns it to the newly defined addH1 variable
+    let addH2 = document.createElement("h2");
+
+    // Set the text of the heading element
+    addH2.textContent = "My Goal";
+
+    // Add the heading element to the document
+    document.body.appendChild(addH2);
+
+    // Creates a new paragraph element and assigns it to the newly defined newParagraph variable
+    let newParagraph = document.createElement("p");
+
+    // Set the text of the heading element
+    newParagraph.textContent = "My goal is to become a video game developer.";
+
+    // Add the heading element to the new window
+    document.body.appendChild(newParagraph);
+
   </script>
 </html>

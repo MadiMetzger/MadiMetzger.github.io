@@ -45,15 +45,35 @@
         <!-- Submit button -->
         <input type="submit" id="submit" value="Submit">
       </form>
+
+      <!-- Blank element to display dynamic loading message -->
+      <p id="statusMessage"></p>
     </article>
   </body>
 
   <script>
+
     // Add an event listener to the Submit button that sends a thank you message with the user's entered name
     document.getElementById("submit").addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent form from refreshing the page
-      // Send alert message thanking the user by their entered name for sending a message, and tells them that their message has been sent
-      alert("Thank you, " + document.getElementById("sendername").value + " your message has been sent!");
+      
+      // Prevent form from refreshing the page
+      event.preventDefault(); 
+
+      // Set status message as the newly defined statusMessage variable
+      let statusMessage = document.getElementById("statusMessage");
+
+      // Display loading message
+      statusMessage.textContent = "Loading...";
+
+      // Display confirmation message after 3 seconds
+      setTimeout (() => {
+        statusMessage.textContent = "Message sent successfully!";
+
+        // Wait 1 second after the confirmation message is displayed, then send alert message thanking the user by their entered name for sending a message, and tells them that their message has been sent
+        setTimeout (() => {
+          alert("Thank you, " + document.getElementById("sendername").value + " your message has been sent!");
+        }, 1000);
+      }, 3000);
     }, false);
   </script>
 </html>
