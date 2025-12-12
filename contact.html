@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
   
-  <body class="light">
+  <body class="light" id="contactBody">
     <!-- Page header -->
     <header>
       <h1>Contact</h1>
@@ -42,8 +42,15 @@
           <input type="text" id="emailmessage" /><br>
         </label>
 
-        <!-- Submit button -->
-        <input type="submit" id="submit" value="Submit">
+        <!-- Div element containing tooltip class -->
+        <div class="tooltip">
+
+          <!-- Submit button -->
+          <input type="submit" id="submit" value="Submit" >
+
+          <!-- The text to be displayed in the tooltip -->
+          <span class="tooltiptext">Click to send your message!</span>
+        </div>
       </form>
 
       <!-- Blank element to display dynamic loading message -->
@@ -52,6 +59,37 @@
   </body>
 
   <script>
+
+    // Function to check what mode is in the local storage
+    function checkMode () {
+      
+      // Set the document body as the value of the newly defined docBody value
+      let docBody = document.getElementById("contactBody");
+
+      // Set the stored mode as the newly defined currentMode variable
+      let currentMode = localStorage.getItem("mode");
+
+      // If the stored mode is dark
+      if (currentMode == "dark") {
+
+        // Remove the light class from the body element
+        docBody.classList.remove("light");
+
+        // Add the dark class to the body element
+        docBody.classList.add("dark");
+
+      } else { // If the stored mode is light
+          
+        // Remove the dark class from the body element
+        docBody.classList.remove("dark");
+
+        // Add the light class to the body element
+        docBody.classList.add("light");
+      }
+    }
+    
+    // Add an event listener that runs the checkMode function when the window loads
+    window.addEventListener("load", checkMode, false);
 
     // Add an event listener to the Submit button that sends a thank you message with the user's entered name
     document.getElementById("submit").addEventListener("click", function(event) {

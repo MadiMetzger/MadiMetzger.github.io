@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
 
-  <body class="light">
+  <body class="light" id="aboutBody">
     <!-- Page header -->
     <header>
       <h1>About</h1>
@@ -39,6 +39,7 @@
   </body>
 
   <script>
+
     // Declare an array containing skills and technologies I use
     let skillsTech = ["HTML", "CSS", "JavaScript", "VS Code", "GitHub"];
 
@@ -71,6 +72,37 @@
 
     // Add the heading element to the new window
     document.body.appendChild(newParagraph);
+
+    // Function to check what mode is in the local storage
+    function checkMode () {
+      
+      // Set the document body as the value of the newly defined docBody value
+      let docBody = document.getElementById("aboutBody");
+
+      // Set the stored mode as the newly defined currentMode variable
+      let currentMode = localStorage.getItem("mode");
+
+      // If the stored mode is dark
+      if (currentMode == "dark") {
+
+        // Remove the light class from the body element
+        docBody.classList.remove("light");
+
+        // Add the dark class to the body element
+        docBody.classList.add("dark");
+
+      } else { // If the stored mode is light
+          
+        // Remove the dark class from the body element
+        docBody.classList.remove("dark");
+
+        // Add the light class to the body element
+        docBody.classList.add("light");
+      }
+    }
+    
+    // Add an event listener that runs the checkMode function when the window loads
+    window.addEventListener("load", checkMode, false);
 
   </script>
 </html>

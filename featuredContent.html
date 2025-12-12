@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
 
-  <body class="light">
+  <body class="light" id="featBody">
     <!-- Page header -->
     <header>
       <h1>Featured Content</h1>
@@ -34,23 +34,54 @@
       </div>
     </article>
 
-    <script>
-      // Count how many projects exist in the projects list
-      const projectCount = document.querySelectorAll("#projectsList a").length;
-
-      const uniDiv = document.getElementById("universityResources");
-      const personalDiv = document.getElementById("personalProjects");
-
-      // Requirements:
-      // If fewer than 3 projects: show BOTH divs
-      // If 3 or more: show ONLY personal projects
-      if (projectCount < 3) {
-        uniDiv.classList.remove("hidden");
-        personalDiv.classList.remove("hidden");
-      } else {
-        uniDiv.classList.add("hidden");
-        personalDiv.classList.remove("hidden");
-      }
-    </script>
+    
   </body>
+  <script>
+    // Count how many projects exist in the projects list
+    const projectCount = document.querySelectorAll("#projectsList a").length;
+
+    const uniDiv = document.getElementById("universityResources");
+    const personalDiv = document.getElementById("personalProjects");
+    // Requirements:
+    // If fewer than 3 projects: show BOTH divs
+    // If 3 or more: show ONLY personal projects
+    if (projectCount < 3) {
+      uniDiv.classList.remove("hidden");
+      personalDiv.classList.remove("hidden");
+    } else {
+      uniDiv.classList.add("hidden");
+      personalDiv.classList.remove("hidden");
+    }
+
+    // Function to check what mode is in the local storage
+    function checkMode () {
+      // Set the document body as the value of the newly defined docBody value
+      let docBody = document.getElementById("featBody");
+
+      // Set the stored mode as the newly defined currentMode variable
+      let currentMode = localStorage.getItem("mode");
+
+      // If the stored mode is dark
+      if (currentMode == "dark") {
+
+        // Remove the light class from the body element
+        docBody.classList.remove("light");
+
+        // Add the dark class to the body element
+        docBody.classList.add("dark");
+
+      } else { // If the stored mode is light
+          
+        // Remove the dark class from the body element
+        docBody.classList.remove("dark");
+
+        // Add the light class to the body element
+        docBody.classList.add("light");
+      }
+    }
+    
+    // Add an event listener that runs the checkMode function when the window loads
+    window.addEventListener("load", checkMode, false);
+      
+  </script>
 </html>

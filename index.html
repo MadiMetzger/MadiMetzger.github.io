@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="styles.css"/>
   </head>
 
-  <script>
+  <!-- <script>
     // Makes a pop-up window that asks for the user's name
     response = window.prompt("What is your name?", "Enter your name here.")
     // Sets the user's name input as the username variable
     let username = response
     // Writes and dynamically updates the welcome message with the user's name
     document.write("Welcome " + username + "!")
-  </script>
-  
-  <body class="light">
+  </script> -->
+
+  <body class="light" id="pageBody">
     <article>
 
       <form>        
@@ -42,14 +42,117 @@
   </body>    
 
   <script>
-
+    
+    // Set the document body as the value of the newly defined docBody value
+    let docBody = document.getElementById("pageBody");
+    
     // Function that will change all DOM elements' CSS style class
     function switchMode() {
-      // Toggles all elements to the dark class
-      document.body.classList.toggle("dark");
+
+      // Set the dark mode checkbox as the newly defined modeCheckbox variable
+      let modeCheckbox = document.getElementById("darkButton");
+
+      // If the document is set to the light class
+      if (docBody.classList.contains("light")) {
+
+        // Remove the light class from the body element
+        docBody.classList.remove("light");
+
+        // Add the dark class to the body element
+        docBody.classList.add("dark");
+        
+        // Save the dark mode to the local storage
+        localStorage.mode = "dark";
+
+      } else { // If the document is set to the dark class
+        
+        // Remove the dark class from the body element
+        docBody.classList.remove("dark");
+
+        // Add the light class to the body element
+        docBody.classList.add("light");
+
+        // Save the light mode to the local storage
+        localStorage.mode = "light";
+      }
+    }
+
+    // Function to check what mode is stored in local storage
+    function checkMode () {
+
+      // Set the stored mode as the newly defined currentMode variable
+      let currentMode = localStorage.getItem("mode");
+
+      // Set the dark mode checkbox as the newly defined modeCheckbox variable
+      let modeCheckbox = document.getElementById("darkButton");
+      
+      // If the stored mode is light
+      if (currentMode == "light") {
+
+        // Make the checkbox unchecked
+        modeCheckbox.checked = false;
+
+        // Remove the dark class from the body element
+        docBody.classList.remove("dark");
+
+        // Add the light class to the body element
+        docBody.classList.add("light");
+
+      } else { // If the stored mode is dark
+        
+        // Make the checkbox checked
+        modeCheckbox.checked = true;
+
+        // Remove the light class from the body element
+        docBody.classList.remove("light");
+
+        // Add the dark class to the body element
+        docBody.classList.add("dark");
+      }
+    }
+
+    // Function to display an overlay
+    function createOverlay() {
+      
+      // Creates a new div element and sets it as the newly defined overlay variable
+      let overlay = document.createElement("div");
+
+      // Assigns the new overlay div element the id loadOverlay
+      overlay.id = "loadOverlay";
+
+      // Adds text content to the new overlay div element
+      overlay.textContent = "This page is a work in progress.";
+
+      // Creates a new div element and sets it as the newly defined closeOverlay variable
+      let closeOverlay = document.createElement("div");
+
+      // Assigns the new closeOverlay div element the id closeButton
+      closeOverlay.id = "closeButton";
+      
+      // Adds text content to the new closeOverlay div element
+      closeOverlay.textContent = "Close";
+      
+      // Appends the new overlay div element to document body
+      document.body.appendChild(overlay);
+
+      // Appends the new closeOverlay div element to overlay div element
+      overlay.appendChild(closeOverlay);
+
+      // When the closeOverlay div element is clicked
+      closeOverlay.onclick = function() {
+        // Remove the overlay div element from the document body
+        document.body.removeChild(overlay);
+      }
     }
     
     // Add an event listener that will change the mode of the page when the Dark Mode button changes
     document.getElementById("darkButton").addEventListener("change", switchMode, false);
+    
+    // Add an event listener that runs the displayOverlay function when the window loads
+    window.addEventListener("load", createOverlay, false);
+
+    // Add an event listener that runs the checkMode function when the window loads
+    window.addEventListener("load", checkMode, false);
+
   </script>
 </html>
