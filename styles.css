@@ -29,7 +29,7 @@
   color: blue;
 }
 
-/* Set the color for a visited link to violet */
+/* Set the color for a visited link to a shade of purple */
 .dark a:visited {
   color: rgb(143, 83, 255);
 }
