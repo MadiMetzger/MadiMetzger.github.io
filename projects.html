@@ -26,9 +26,112 @@
         <a href="">Project 3</a>
       </p>
     </article>
+
+    <!-- Section to be dynamically updated with project objects -->
+    <section id="section"></section>
+
   </body>
 
   <script>
+
+    // Custom object for Project 1
+    let project1 = {
+      title: "Calculator",
+      summary: "A simple calculator program.",
+      icon: "https://img.icons8.com/color/512/apple-calculator.png",
+      link: "fakeLink1",
+    };
+
+    // Custom object for Project 2
+    let project2 = {
+      title: "Bird Website",
+      summary: "A simple website about birds.",
+      icon: "https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/bird.png",
+      link: "fakeLink2",
+    };
+
+    // Custom object for Project 3
+    let project3 = {
+      title: "Dog Website",
+      summary: "A simple website about dogs.",
+      icon: "https://static.vecteezy.com/system/resources/thumbnails/048/942/306/small/dog-face-cartoon-icon-vector.jpg",
+      link: "fakeLink3",
+    };
+
+    // Array containing all other custom project objects
+    let projectsArray = [project1, project2, project3];
+
+    // Store and parse projectsArray
+    // If there is something stored in session storage
+    if (sessionStorage.getItem("projectsArray")) {
+
+      // Retrieve and parse the stored data
+      JSON.parse(sessionStorage.getItem("projectsArray"));
+
+    } else { // If there is no data in the session storage
+
+      // Convert the projectsArray to a string and store it in session storage
+      sessionStorage.setItem("projectsArray", JSON.stringify(projectsArray));
+    };
+
+    // Render projects dynamically
+    // Set the section tag as the value of the newly defined projectsSection variable
+    let projectsSection = document.getElementById("section");
+
+    // Loop through the projectsArray and dynamically fill projectsSection section
+    for (let i = 0; i < projectsArray.length; i++) {
+
+      // Creates a new h2 element and sets it as the value of the newly defined newTitle variable
+      let newTitle = document.createElement("h2");
+
+      // Sets the text content of the h2 element to the title key of the current custom object
+      newTitle.textContent = "Project Title: " + projectsArray[i].title;
+
+      // Adds the new h2 element to the projectsSection
+      projectsSection.appendChild(newTitle);
+
+      // Creates a new p element and sets it as the value of the newly defined newSummary variable
+      let newSummary = document.createElement("p");
+
+      // Sets the text content of the p element to the summary key of the current custom object
+      newSummary.textContent = "Project Summary: " + projectsArray[i].summary;
+
+      // Adds the new p element to the projectsSection
+      projectsSection.appendChild(newSummary);
+
+      // Creates a new img element and sets it as the value of the newly defined newIcon variable
+      let newIcon = document.createElement("img");
+
+      // Sets the src of the img element to the icon key of the current custom object
+      newIcon.src =  projectsArray[i].icon;
+
+      // Adds the new img element to the projectsSection
+      projectsSection.appendChild(newIcon);
+
+      // Creates a new br element and sets it as the value of the newly defined newBreak variable
+      let newBreak = document.createElement("br");
+
+      // Adds the new br element to the projectsSection
+      projectsSection.appendChild(newBreak);
+      
+      // Creates a new span element and sets it as the value of the newly defined newLinkText variable
+      let newLinkText = document.createElement("span");
+      
+      // Sets the text content of the span element
+      newLinkText.textContent =  "Link to Repository: ";
+
+      // Adds the new span element to the projectsSection
+      projectsSection.appendChild(newLinkText);
+
+      // Creates a new a element and sets it as the value of the newly defined newLink variable
+      let newLink = document.createElement("a");
+
+      // Sets the text content of the a element to the link key of the current custom object
+      newLink.textContent =  projectsArray[i].link;
+
+      // Adds the new a element to the projectsSection
+      projectsSection.appendChild(newLink);
+    };
 
     // Select the article elements and set as the newly defined article variable
     let article = document.querySelector("article");
@@ -61,8 +164,8 @@
 
         // Add the light class to the body element
         docBody.classList.add("light");
-      }
-    }
+      };
+    };
     
     // Add an event listener that runs the checkMode function when the window loads
     window.addEventListener("load", checkMode, false);
